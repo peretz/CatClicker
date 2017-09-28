@@ -1,13 +1,17 @@
-#click-counter {
+.cat-name {
     text-align: center;
     font-size: 30px;
-    font-style: bold;
-    margin-bottom: 5px;
 }
 
-#cat-image {
+.cat-image {
     display: block;
     margin: auto;
+}
+
+.click-counter {
+    text-align: center;
+    font-size: 25px;
+    font-style: bold;
 }
 
 
