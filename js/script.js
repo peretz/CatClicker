@@ -2,13 +2,15 @@
 var cat1 = {
     "name" : "Pedrito",
     "id" : "cat1",
-    "image" : "images/cat1.jpg"
+    "image" : "images/cat1.jpg",
+    "counter" : 0
 }
 
 var cat2 = {
     "name" : "Juanito",
     "id" : "cat2",
-    "image" : "images/cat2.jpg"
+    "image" : "images/cat2.jpg",
+    "counter" : 0
 }
 
 var displayCat = function(cat) {
@@ -17,24 +19,18 @@ var displayCat = function(cat) {
     formattedImage = formattedImage.replace("%cat-image%", cat.image);
     var formattedClickCounter = HTMLCatClickCounter.replace("%cat-id%", cat.id);
 
+    // Add HTML code
     $('#cats-info').append(formattedName);
     $('#cats-info').append(formattedImage);
     $('#cats-info').append(formattedClickCounter);
+
+    // Add Click counter.
+    $('#' + cat.id + '-image').click(function(){
+       cat.counter = cat.counter + 1;
+       $('#' + cat.id + '-click-counter').html("Count: " + cat.counter);
+    });
 }
 
 // Display cats.
 displayCat(cat1);
 displayCat(cat2);
-
-// Add respective click counter to each cat.
-var counter1 = 0;
-$('#' + cat1.id + '-image').click(function(){
-   counter1 = counter1 + 1;
-   $('#' + cat1.id + '-click-counter').html("Count: " + counter1);
-});
-
-var counter2 = 0;
-$('#' + cat2.id + '-image').click(function(){
-   counter2 = counter2 + 1;
-   $('#' + cat2.id + '-click-counter').html("Count: " + counter2);
-});
