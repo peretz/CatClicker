@@ -5,18 +5,25 @@ var cat1 = {
     "image" : "images/cat1.jpg"
 }
 
-cat1.display = function() {
-    var formattedName = HTMLCatName.replace("%cat-name%", cat1.name);
-    var formattedImage = HTMLCatImage.replace("%cat-id%", cat1.id);
-    formattedImage = formattedImage.replace("%cat-image%", cat1.image);
-    var formattedClickCounter = HTMLCatClickCounter.replace("%cat-id%", cat1.id);
+var cat2 = {
+    "name" : "Juanito",
+    "id" : "cat2",
+    "image" : "images/cat2.jpg"
+}
+
+var displayCat = function(cat) {
+    var formattedName = HTMLCatName.replace("%cat-name%", cat.name);
+    var formattedImage = HTMLCatImage.replace("%cat-id%", cat.id);
+    formattedImage = formattedImage.replace("%cat-image%", cat.image);
+    var formattedClickCounter = HTMLCatClickCounter.replace("%cat-id%", cat.id);
 
     $('#cats-info').append(formattedName);
     $('#cats-info').append(formattedImage);
     $('#cats-info').append(formattedClickCounter);
 }
 
-cat1.display();
+displayCat(cat1);
+displayCat(cat2);
 
 var counter1 = 0;
 $('#cat1-image').click(function(){
