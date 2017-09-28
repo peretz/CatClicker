@@ -1,5 +1,8 @@
 #click-counter {
     text-align: center;
+    font-size: 30px;
+    font-style: bold;
+    margin-bottom: 5px;
 }
 
 #cat-image {
