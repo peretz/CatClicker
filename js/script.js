@@ -44,9 +44,9 @@ var displayCat = function(cat) {
     var formattedClickCounter = HTMLCatClickCounter.replace("%cat-id%", cat.id);
 
     // Add HTML code
-    $('#cats-info').append(formattedName);
-    $('#cats-info').append(formattedImage);
-    $('#cats-info').append(formattedClickCounter);
+    $('#cat-info').append(formattedName);
+    $('#cat-info').append(formattedImage);
+    $('#cat-info').append(formattedClickCounter);
 
     // Add Click counter.
     $('#' + cat.id + '-image').click(function(){

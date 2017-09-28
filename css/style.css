@@ -1,3 +1,18 @@
+#frame {
+    width: 100%;
+    overflow: auto;
+}
+
+#cats-list {
+    float: left;
+    width: 25%;
+}
+
+#cat-info {
+    float: right;
+    width: 75%
+}
+
 .cat-name {
     text-align: center;
     font-size: 30px;
