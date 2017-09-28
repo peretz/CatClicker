@@ -10,13 +10,12 @@
         <img id="cat-image" src="images/cat.jpg" alt="Cat picture">
     </body>
 
+    <script src="js/libs/jquery.min.js"></script>
     <script>
        var counter = 0;
-       var elem = document.getElementById('cat-image'); 
-       elem.addEventListener('click', function(){
-           var elem = document.getElementById('click-counter'); 
+       $('#cat-image').click(function(){
            counter = counter + 1;
-           elem.innerHTML = "Count: " + counter;
+           $('#click-counter').html("Count: " + counter);
        });
     </script>
 </html>
