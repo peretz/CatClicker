@@ -6,11 +6,16 @@
 #cats-list {
     float: left;
     width: 25%;
+    list-style-type: none;
+    color: blue;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
 }
 
 #cat-info {
     float: right;
-    width: 75%
+    width: 70%
 }
 
 .cat-name {
