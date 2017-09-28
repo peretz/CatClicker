@@ -1,17 +1,17 @@
-// First cat
-var cat1 = {
-    "name" : "Pedrito",
-    "id" : "cat1",
-    "image" : "images/cat1.jpg",
-    "counter" : 0
-}
-
-var cat2 = {
-    "name" : "Juanito",
-    "id" : "cat2",
-    "image" : "images/cat2.jpg",
-    "counter" : 0
-}
+var cats = [
+    {
+        "name" : "Pedrito",
+        "id" : "cat1",
+        "image" : "images/cat1.jpg",
+        "counter" : 0
+    },
+    {
+        "name" : "Juanito",
+        "id" : "cat2",
+        "image" : "images/cat2.jpg",
+        "counter" : 0
+    }
+]
 
 var displayCat = function(cat) {
     var formattedName = HTMLCatName.replace("%cat-name%", cat.name);
@@ -32,5 +32,5 @@ var displayCat = function(cat) {
 }
 
 // Display cats.
-displayCat(cat1);
-displayCat(cat2);
+displayCat(cats[0]);
+displayCat(cats[1]);
