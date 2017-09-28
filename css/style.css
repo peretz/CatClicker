@@ -1,8 +1,8 @@
-.counter {
+#click-counter {
     text-align: center;
 }
 
-.image {
+#cat-image {
     display: block;
     margin: auto;
 }

@@ -6,7 +6,17 @@
     </head>
 
     <body>
-        <h2 class="counter">Count: </h2>
-        <img class="image" src="images/cat.jpg" alt="Cat picture">
+        <h2 id="click-counter">Count: 0</h2>
+        <img id="cat-image" src="images/cat.jpg" alt="Cat picture">
     </body>
+
+    <script>
+       var counter = 0;
+       var elem = document.getElementById('cat-image'); 
+       elem.addEventListener('click', function(){
+           var elem = document.getElementById('click-counter'); 
+           counter = counter + 1;
+           elem.innerHTML = "Count: " + counter;
+       });
+    </script>
 </html>
