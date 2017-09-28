@@ -10,6 +10,30 @@ var cats = [
         "id" : "cat2",
         "image" : "images/cat2.jpg",
         "counter" : 0
+    },
+    {
+        "name" : "Luis",
+        "id" : "cat3",
+        "image" : "images/cat3.jpg",
+        "counter" : 0
+    },
+    {
+        "name" : "Mario",
+        "id" : "cat4",
+        "image" : "images/cat4.jpg",
+        "counter" : 0
+    },
+    {
+        "name" : "Chuchito",
+        "id" : "cat5",
+        "image" : "images/cat5.jpg",
+        "counter" : 0
+    },
+    {
+        "name" : "Kevin",
+        "id" : "cat6",
+        "image" : "images/cat6.jpg",
+        "counter" : 0
     }
 ]
 
@@ -32,5 +56,6 @@ var displayCat = function(cat) {
 }
 
 // Display cats.
-displayCat(cats[0]);
-displayCat(cats[1]);
+for (var i = 0; i < cats.length; i++) {
+    displayCat(cats[i]);
+}
