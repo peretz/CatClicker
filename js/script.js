@@ -22,17 +22,19 @@ var displayCat = function(cat) {
     $('#cats-info').append(formattedClickCounter);
 }
 
+// Display cats.
 displayCat(cat1);
 displayCat(cat2);
 
+// Add respective click counter to each cat.
 var counter1 = 0;
-$('#cat1-image').click(function(){
+$('#' + cat1.id + '-image').click(function(){
    counter1 = counter1 + 1;
-   $('#cat1-click-counter').html("Count: " + counter1);
+   $('#' + cat1.id + '-click-counter').html("Count: " + counter1);
 });
 
 var counter2 = 0;
-$('#cat2-image').click(function(){
+$('#' + cat2.id + '-image').click(function(){
    counter2 = counter2 + 1;
-   $('#cat2-click-counter').html("Count: " + counter2);
+   $('#' + cat2.id + '-click-counter').html("Count: " + counter2);
 });
