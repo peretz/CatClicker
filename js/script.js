@@ -37,16 +37,33 @@ var cats = [
     }
 ]
 
+var displayListOfCats = function(){
+    for (var i = 0; i < cats.length; i++) {
+        var formattedListItem = HTMLCatListItem.replace("%cat-id%", cats[i].id);
+        formattedListItem = formattedListItem.replace("%cat-name%", cats[i].name);
+
+        $('#cats-list').append(formattedListItem);
+
+        $('#' + cats[i].id + '-list-item').click((function(cat){
+            return function() {
+                displayCat(cat);
+            };
+        })(cats[i]));
+    }
+}
+
+displayListOfCats();
+
 var displayCat = function(cat) {
     var formattedName = HTMLCatName.replace("%cat-name%", cat.name);
     var formattedImage = HTMLCatImage.replace("%cat-id%", cat.id);
     formattedImage = formattedImage.replace("%cat-image%", cat.image);
     var formattedClickCounter = HTMLCatClickCounter.replace("%cat-id%", cat.id);
+    formattedClickCounter = formattedClickCounter.replace("%cat-counter%", cat.counter);
 
     // Add HTML code
-    $('#cat-info').append(formattedName);
-    $('#cat-info').append(formattedImage);
-    $('#cat-info').append(formattedClickCounter);
+    var formattedCatInfo = formattedName + formattedImage + formattedClickCounter;
+    $('#cat-info').html(formattedCatInfo);
 
     // Add Click counter.
     $('#' + cat.id + '-image').click(function(){
