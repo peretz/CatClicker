@@ -72,7 +72,5 @@ var displayCat = function(cat) {
     });
 }
 
-// Display cats.
-for (var i = 0; i < cats.length; i++) {
-    displayCat(cats[i]);
-}
+// Display first cat.
+displayCat(cats[0]);
