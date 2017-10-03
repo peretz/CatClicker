@@ -34,4 +34,13 @@
     font-style: bold;
 }
 
+#admin-mode{
+    font-size: 30px;
+    text-align: center;
+}
 
+input[type='text'], button {
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
