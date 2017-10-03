@@ -70,6 +70,12 @@ $(function(){
 
     var viewCat = {
         init: function() {
+            // Preload elements so that we don't need to be
+            // loading them continuously.
+            this.$catName = $('#cat-name');
+            this.$catImage = $('#cat-image');
+            this.$catClickCounter = $('#cat-click-counter');
+
             // Add click counter.
             $('#cat-image').click(function(){
                 octopus.increaseCounter();
@@ -79,9 +85,9 @@ $(function(){
         },
         render: function() {
             var currentCat = octopus.getCurrentCat();
-            $('#cat-name').html("Me llamo " + currentCat.name + "!");
-            $('#cat-image').attr("src", currentCat.image);
-            $('#cat-click-counter').html("Count: " + currentCat.counter);
+            this.$catName.html("Me llamo " + currentCat.name + "!");
+            this.$catImage.attr("src", currentCat.image);
+            this.$catClickCounter.html("Count: " + currentCat.counter);
         }
     }
 
