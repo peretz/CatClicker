@@ -18,17 +18,17 @@
     width: 70%
 }
 
-.cat-name {
+#cat-name {
     text-align: center;
     font-size: 30px;
 }
 
-.cat-image {
+#cat-image {
     display: block;
     margin: auto;
 }
 
-.click-counter {
+#cat-click-counter {
     text-align: center;
     font-size: 25px;
     font-style: bold;
