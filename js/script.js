@@ -118,6 +118,7 @@ $(function(){
                     return function() {
                         octopus.setCurrentCat(localCat);
                         viewCat.render();
+                        viewAdminMode.render();
                     };
                 })(cat));
 
@@ -133,11 +134,6 @@ $(function(){
             $('#Admin').click(function(){
                 octopus.setAdminMode(true);
                 viewAdminMode.render();
-
-                var cat = octopus.getCurrentCat();
-                $('#new-cat-name').attr("value", cat.name);
-                $('#new-image-url').attr("value", cat.image);
-                $('#new-click-count').attr("value", cat.counter);
             });
 
             $('#Save').click(function(){
@@ -161,6 +157,11 @@ $(function(){
         },
 
         render: function() {
+            var cat = octopus.getCurrentCat();
+            $('#new-cat-name').attr("value", cat.name);
+            $('#new-image-url').attr("value", cat.image);
+            $('#new-click-count').attr("value", cat.counter);
+
             var adminMode = octopus.getAdminMode();
             if (adminMode) {
                 this.$adminMode.show();
