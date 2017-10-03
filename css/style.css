@@ -34,7 +34,7 @@
     font-style: bold;
 }
 
-#admin-mode{
+#admin-mode, #Admin-div{
     font-size: 30px;
     text-align: center;
 }

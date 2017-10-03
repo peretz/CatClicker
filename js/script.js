@@ -2,6 +2,7 @@ $(function(){
 
     var model = {
         currentCat: null,
+        adminMode: false,
         cats: [
             {
                 "name" : "Pedrito",
@@ -65,6 +66,14 @@ $(function(){
         increaseCounter: function() {
             model.currentCat.counter++;
             viewCat.render();
+        },
+
+        getAdminMode() {
+            return model.adminMode;
+        },
+
+        setAdminMode(mode) {
+            model.adminMode = mode;
         }
     }
 
@@ -75,26 +84,57 @@ $(function(){
             this.$catName = $('#cat-name');
             this.$catImage = $('#cat-image');
             this.$catClickCounter = $('#cat-click-counter');
+            this.$adminMode = $('#admin-mode');
 
             // Add click counter.
-            $('#cat-image').click(function(){
+            this.$catImage.click(function(){
                 octopus.increaseCounter();
+            });
+
+            $('#Admin').click(function(){
+                octopus.setAdminMode(true);
+                viewCat.render();
+            });
+
+            $('#Save').click(function(){
+                octopus.setAdminMode(false);
+                viewCat.render();
+            });
+
+            $('#Cancel').click(function(){
+                octopus.setAdminMode(false);
+                viewCat.render();
             });
 
             this.render();
         },
+
         render: function() {
             var currentCat = octopus.getCurrentCat();
             this.$catName.html("Me llamo " + currentCat.name + "!");
             this.$catImage.attr("src", currentCat.image);
             this.$catClickCounter.html("Count: " + currentCat.counter);
+
+            var adminMode = octopus.getAdminMode();
+            if (adminMode) {
+                this.$adminMode.show();
+            }
+            else {
+                this.$adminMode.hide();
+            }
+
+                
         }
     }
 
     var viewListOfCats = {
-
         init: function() {
-            $('#cats-list').html("");
+            this.$catsList = $('#cats-list');
+            this.render();
+        },
+
+        render: function() {
+            this.$catsList.html("");
 
             octopus.getCats().forEach(function(cat) {
                 var elem = document.createElement('li');
@@ -106,7 +146,7 @@ $(function(){
                     };
                 })(cat));
 
-                $('#cats-list').append(elem);
+                viewListOfCats.$catsList.append(elem);
             });
         }
     };
