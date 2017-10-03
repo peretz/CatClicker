@@ -49,6 +49,7 @@ $(function(){
 
             viewCat.init();
             viewListOfCats.init();
+            viewAdminMode.init();
         },
 
         getCats: function() {
@@ -84,26 +85,10 @@ $(function(){
             this.$catName = $('#cat-name');
             this.$catImage = $('#cat-image');
             this.$catClickCounter = $('#cat-click-counter');
-            this.$adminMode = $('#admin-mode');
 
             // Add click counter.
             this.$catImage.click(function(){
                 octopus.increaseCounter();
-            });
-
-            $('#Admin').click(function(){
-                octopus.setAdminMode(true);
-                viewCat.render();
-            });
-
-            $('#Save').click(function(){
-                octopus.setAdminMode(false);
-                viewCat.render();
-            });
-
-            $('#Cancel').click(function(){
-                octopus.setAdminMode(false);
-                viewCat.render();
             });
 
             this.render();
@@ -114,16 +99,6 @@ $(function(){
             this.$catName.html("Me llamo " + currentCat.name + "!");
             this.$catImage.attr("src", currentCat.image);
             this.$catClickCounter.html("Count: " + currentCat.counter);
-
-            var adminMode = octopus.getAdminMode();
-            if (adminMode) {
-                this.$adminMode.show();
-            }
-            else {
-                this.$adminMode.hide();
-            }
-
-                
         }
     }
 
@@ -148,6 +123,51 @@ $(function(){
 
                 viewListOfCats.$catsList.append(elem);
             });
+        }
+    };
+
+    var viewAdminMode = {
+        init: function() {
+            this.$adminMode = $('#admin-mode');
+
+            $('#Admin').click(function(){
+                octopus.setAdminMode(true);
+                viewAdminMode.render();
+
+                var cat = octopus.getCurrentCat();
+                $('#new-cat-name').attr("value", cat.name);
+                $('#new-image-url').attr("value", cat.image);
+                $('#new-click-count').attr("value", cat.counter);
+            });
+
+            $('#Save').click(function(){
+                octopus.setAdminMode(false);
+                var cat = octopus.getCurrentCat();
+                cat.name = $('#new-cat-name').val();
+                cat.image = $('#new-image-url').val();
+                cat.counter = $('#new-click-count').val();
+
+                viewCat.render();
+                viewListOfCats.init();
+                viewAdminMode.render();
+            });
+
+            $('#Cancel').click(function(){
+                octopus.setAdminMode(false);
+                viewAdminMode.render();
+            });
+
+            this.render();
+        },
+
+        render: function() {
+            var adminMode = octopus.getAdminMode();
+            if (adminMode) {
+                this.$adminMode.show();
+            }
+            else {
+                this.$adminMode.hide();
+            }
         }
     };
 
